@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% load hitcount_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+
+    {% for post in object_list %}
+  
+        <div class="card mb-2">
+            <img class="card-img-top" src="{{ post.image.url }}">
+            <div class="card-body">
+                <h1 class="card-title"><a href="posts/{{ post.slug }}">{{ post.title }}</a></h1>
+<p>{% get_hit_count for post %}👁</p>
+   <a href="posts/{{ post.slug }}"
+                   class="btn btn-primary">
+                    View Post
+                </a>
+            </div>
+        </div>
+    
+    {% endfor %}
+  </body>
+</html>
+
+{% endblock %}

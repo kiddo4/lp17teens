@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  </head>
+ <section class="about-area" id="about">
+  <h3 class="section-title">Profile <span>Info</span></h3>
+  <div class="media-body">
+<h1 class="text-primary text-center">{{ user.profile.Firstname }} {{ user.profile.Lastname }}</h1>
+  <h1 class="account-heading">{{ user.username }}</h1>
+<p class="text-secondary">{{ user.email }}</p>
+<h3 class="text-primary text-center">Zone: {{ user.profile.Zone }}</h3>
+</div>
+</div>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4"> Update <span>Profile</span></legend>
+      {{ u_form|crispy }}
+      {{ p_form|crispy }}
+      
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-success" type="submit">Update</button>
+    </div>
+  </form>
+</div>
+</section>
+{% endblock %}

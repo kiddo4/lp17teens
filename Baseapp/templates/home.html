@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% load hitcount_tags %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+<div class="main">
+ <m>
+</div>
+    {% for post in posts %}
+  
+        <div class="card mb-2 mt-10">
+            <img class="card-img-top" src="{{ post.image.url }}">
+            <div class="card-body">
+                <h1 class="card-title"><a href="search/posts/{{ post.slug }}">{{ post.title }}</a></h1>
+<p>{% get_hit_count for post %}👁</p>
+  <small>
+        {{ post.created_on.date }} |&nbsp;
+        &nbsp;
+        {% for category in post.categories.all %}
+        <a href="{% url 'blog_category' category.name %}" class="text-primary">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+   <a href="search/posts/{{ post.slug }}"
+                   class="btn btn-primary">
+                    View Post
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+  </body>
+</html>
+
+{% endblock %}
