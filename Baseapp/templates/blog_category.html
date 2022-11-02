@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load hitcount_tags %}
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>{{ category | title }}</h1>
+    <hr>
+      {% for post in posts %}
+            <img class="card-img-top" src="{{ post.image.url }}">
+            <div class="card-body">
+                <h1 class="card-title"><a href="search/posts/{{ post.slug }}">{{ post.title }}</a></h1>
+<p>{% get_hit_count for post %}👁</p>
+  <small>
+        {{ post.created_on.date }} |&nbsp;
+        &nbsp;
+        {% for category in post.categories.all %}
+        <a href="{% url 'blog_category' category.name|slugify %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+   <a href="search/posts/{{ post.slug }}"
+                   class="btn btn-primary">
+                    View Post
+                </a>
+            </div>
+        
+        {% endfor %}
+{% endblock %}

@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Lp17Ultimateteenagers</title>
+  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href='{% static 'Baseapp/main.css' %}' type="text/css" />
+  <link rel="shortcut icon" href='{% static 'images/favicon.ico' %}' type="image/x-icon" />
+  <link rel="shortcut icon" href='{% static 'images/logo.ico' %}' type="image/x-icon" />
+<script src="https://kit.fontawesome.com/698eec5859.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <h2>
+        <a href="#"><img src='{% static 'images/logo.png' %}' class="logo"alt="" /></a>
+      </h2>
+      <ul class="nav">
+        <li><a href="home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="b-button"><a href="{% url 'register' %}">Join</a></li></button>
+
+      </ul>
+    </header>
+    <section class="banner-area">
+      <div class="banner-img"></div>
+      <h3>Where God is there is hope</h3>
+      <h1>The Ultimate <span>Teenagers</span></h1>
+      <a href="{% url 'register' %}" class="banner-btn">Join Us Today</a>
+    </section>
+    <section class="about-area" id="about">
+      <h3 class="section-title">About <span>Us</span></h3>
+      <ul class="about-content">
+        <li class="about-left"></li>
+        <li class="about-right">
+           <h2>We are taking steps in building path for teenagers in christ</h2>
+           <p>we are achieving the unachievable leading a way for the young in christ, striving so hard to take salvation localy and globally we inculcate christ in our lives we are building ourselves as an  army of God.Our lives depend on God only, we are the children of God. 
+           </p>
+           <p><i class="fa fa-arrow-right"></i>We live for christ alone</p>
+   <p><i class="fa fa-arrow-right"></i>We are leading the world of salvation</p>
+ <p><i class="fa fa-arrow-right"></i>We are teenagers of change</p>
+ <p><i class="fa fa-arrow-right"></i>we are army of christ</p>
+        </li>
+      </ul>
+    </section>
+    <section class="msg-area">
+     <div class="msg-content">
+       <h2>Quote of the <span>Day</span></h2>
+       <p>Be wise as<span>Serpent</span> and gentle as a <span>Dove</span></p>
+     </div> 
+    </section>
+    <section class="services-area">
+      <h2 class="section-title">We <span>Emphasize</span></h2>
+      <ul class="services-content">
+      <li>
+          <img src='{% static 'images/img4.jpeg' %}' />
+             <h4>Prayers</h4>
+        <p>We practice communicating with God.</p>
+      </li>
+  <li>
+           <img src='{% static 'images/img1.jpeg' %}' />
+             <h4>Salvation</h4>
+        <p>Collective salvation is not possible without personal salvation, but the latter is achievable.We are restored and made new for the purpose of becoming saved; being rid of the old poor quality conditions and becoming improved.
+        </p>
+      </li>
+  <li>
+        <img src='{% static 'images/img3.jpeg' %}' />
+          <h4>Blessings</h4>
+        <p>God declaration and favour which has been bestowend on us.</p>
+      </li>
+      </ul>
+      <div id="container">
+        <h1> Check <span>Out</span></h1>
+        <div id="vid-c"><a href="stream/video"><p><i class="fa-solid fa-video"></i></p>
+        <h3>Live/Video</h3></a>
+        </div>
+          <div id="blog-c"><a href="{% url 'home' %}"><p><i class="fa-solid fa-blog"></i></p><h3>Blog</h3></a>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section class="contact-area" id="contact">
+     <h2 class="section-title">Our <span>Contact</span></h2>
+  <ul class="contact-content">
+    <li>
+    <i class="fa fa-map-marker"></i><p>188,Nurenu Yusuf Drive,Surulere Bus Stop,Kola Abgado,Lagos (RCCG RIVER OF LIFE)<br /> Nigeria</p>
+      </li>
+  <li>
+      <i class="fa fa-phone"></i><p>+234 906 454 7064<br />+234 706 899 0318</p>
+      </li>
+ <li>
+      <i class="fa fa-envelope"></i><p>olanrewajutaiwo183@gmail.com<br /></p>
+      </li>
+  </ul>
+    </section>
+    <footer>
+      <p>All right reserved <br> ©TheUltimateteenagers</p>
+   {% for social_menu in social_menus %}
+  <p>Developed by <a href="{{ social_menu.Facebook }}"><span>Unknown Technology</span></a></p>
+     <p><a href="{{ social_menu.Whatsapp }}"><i class="fa fa-whatsapp"></i></a>-<a href="{{ social_menu.Instagram }}"><i class="fa fa-instagram"></i></a></p>
+     {% endfor %}
+    </footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  </body>
+</html>

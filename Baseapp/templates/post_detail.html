@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load hitcount_tags %}
+{% load static %}
+
+{% block page_content %}
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <title>{{ post.title }}</title>
+ 
+</head>
+ <body>
+     
+<h1 class=" mt-2 mb-2" id="desc-tit"><strong>{{ post.title }}</strong></h1>
+<small class="text-primary">&nbsp;
+        &nbsp;
+        {% for category in post.categories.all %}
+        <a href="{% url 'blog_category' category.name %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+
+ <img src="{{ post.image.url }}" alt="image" height="40%" width="100%" class="img-bord">
+    
+<p>{% get_hit_count for post %}👁</p>
+      <p class="font-l">{{ post.Body|safe}}</p>
+  
+
+
+
+ </body>
+  
+</html>
+
+{% endblock %}

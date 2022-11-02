@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block page_content %}
+{% load hitcount_tags %}
+    <div>
+        <h1>Live is <span>Unavailable</span> now </h1><h3>you can make use of this videos </h3>
+    <div>
+        {% for video in videos %}
+ <div class="card mb-2 mt-10">
+           <video class="card-image-top" controls autoplay muted>
+                <source src="{{ video.video.url }}" type="video/mp4">
+              </video>
+            <div class="card-body">
+                <h1 class="card-title"><a href="{{ video.slug }}">{{ video.title }}</a></h1>
+<p>{% get_hit_count for video %}views👁</p>
+            <small>{{ video.upload_date }}&nbsp;&nbsp;
+            </small>
+   <a href="{{ video.slug }}"
+                   class="btn btn-primary">
+                    View Video
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    
+{% endblock page_content %}

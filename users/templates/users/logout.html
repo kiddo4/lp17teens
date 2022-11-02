@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block page_content %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  </head>
+<div class="content-section">
+<h1>You have been logged out</h1>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+     <a  href="{% url 'login' %}">Login Again</a>
+    </small>
+  </div>
+</div>
+{% endblock %}
